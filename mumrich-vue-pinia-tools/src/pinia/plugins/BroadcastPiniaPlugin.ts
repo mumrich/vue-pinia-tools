@@ -2,7 +2,7 @@ import { useBroadcastChannel } from "@vueuse/core";
 import { PiniaPlugin } from "pinia";
 import { watch } from "vue";
 
-const BroadcastPiniaPlugin: PiniaPlugin = (context) => {
+export const BroadcastPiniaPlugin: PiniaPlugin = (context) => {
   const { post, close, data } = useBroadcastChannel({
     name: "pinia-channel",
   });
@@ -22,5 +22,3 @@ const BroadcastPiniaPlugin: PiniaPlugin = (context) => {
     close();
   };
 };
-
-export default BroadcastPiniaPlugin;
