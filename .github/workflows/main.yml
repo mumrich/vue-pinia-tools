@@ -31,6 +31,12 @@ jobs:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
 
+      # Install the latest GitVersion 5 version.
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.7
+        with:
+          versionSpec: "5.x"
+
       # Runs the build script
       - run: chmod +x ./build.sh && ./build.sh
         name: Build
