@@ -1,9 +1,18 @@
 {
   "name": "mumrich-vue-pinia-tools",
   "version": "0.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Hannes Morgenthaler",
+    "email": "hannes@morgethaler.ch"
+  },
   "files": [
     "dist"
   ],
+  "repository": {
+    "url": "https://github.com/mumrich/vue-pinia-tools",
+    "type": "git"
+  },
   "main": "./dist/mumrich-vue-pinia-tools.umd.js",
   "module": "./dist/mumrich-vue-pinia-tools.es.js",
   "exports": {
