@@ -34,7 +34,7 @@ namespace Build.Tasks
       {
         settings.WorkingDirectory = viteJsProjDir;
         settings.NewVersion(context.GitVersion.Major, context.GitVersion.Minor, context.GitVersion.Patch);
-        settings.Tag("vue");
+        settings.Tag("latest");
       });
     }
   }
