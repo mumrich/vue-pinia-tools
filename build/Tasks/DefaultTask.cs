@@ -1,4 +1,6 @@
-﻿using Cake.Frosting;
+﻿using Cake.Common;
+using Cake.Core.IO;
+using Cake.Frosting;
 using Cake.Yarn;
 
 namespace Build.Tasks
@@ -11,6 +13,18 @@ namespace Build.Tasks
       var viteJsProjDir = context.FileSystem
         .GetDirectory(context.SolutionDirectoryFullPath)
         .Path.Combine(context.ViteJsProjName);
+
+      context.StartAndReturnProcess("yarn", new ProcessSettings
+      {
+        WorkingDirectory = viteJsProjDir,
+        Arguments = "config set version-git-tag false"
+      });
+      context.StartAndReturnProcess("yarn", new ProcessSettings
+      {
+        WorkingDirectory = viteJsProjDir,
+        Arguments = "config set version-tag-prefix \"\""
+      });
+
       var yarnRunner = context.Yarn().FromPath(viteJsProjDir);
 
       yarnRunner.Install();

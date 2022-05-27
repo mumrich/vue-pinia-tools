@@ -43,7 +43,7 @@ jobs:
 
       # Runs the build script
       - run: |
-          chmod +x ./build.sh 
+          chmod +x ./build.sh
           ./build.sh
         name: Build
         env:
