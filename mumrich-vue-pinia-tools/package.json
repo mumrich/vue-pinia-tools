@@ -27,6 +27,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/core": "^8.5.0",
+    "pinia": "^2.0.14",
     "vue": "^3.2.25"
   },
   "types": "dist/types/lib.d.ts",
