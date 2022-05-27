@@ -22,7 +22,7 @@ export default defineConfig({
       fileName: (format) => `${libName}.${format}.js`,
     },
     rollupOptions: {
-      external: ["vue"],
+      external: ["vue", "pinia", "@vueuse/core"],
       output: {
         // Provide global variables to use in the UMD build
         // Add external deps here
