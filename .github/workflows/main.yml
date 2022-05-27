@@ -25,6 +25,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      # unshallow git repo
+      - run: git fetch --unshallow
+
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v3
         with:
@@ -38,5 +41,7 @@ jobs:
           versionSpec: "5.x"
 
       # Runs the build script
-      - run: chmod +x ./build.sh && ./build.sh
+      - run: |
+          chmod +x ./build.sh 
+          ./build.sh
         name: Build
