@@ -33,6 +33,7 @@ jobs:
         with:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
+          scope: "@octocat"
 
       # Install the latest GitVersion 5 version.
       - name: Install GitVersion
@@ -45,3 +46,5 @@ jobs:
           chmod +x ./build.sh 
           ./build.sh
         name: Build
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
