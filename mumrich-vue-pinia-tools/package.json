@@ -1,7 +1,17 @@
 {
   "name": "mumrich-vue-pinia-tools",
-  "private": true,
   "version": "0.0.0",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/mumrich-vue-pinia-tools.umd.js",
+  "module": "./dist/mumrich-vue-pinia-tools.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/mumrich-vue-pinia-tools.es.js",
+      "require": "./dist/mumrich-vue-pinia-tools.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -11,6 +21,7 @@
     "vue": "^3.2.25"
   },
   "devDependencies": {
+    "@types/node": "^17.0.35",
     "@vitejs/plugin-vue": "^2.3.3",
     "typescript": "^4.5.4",
     "vite": "^2.9.9",
