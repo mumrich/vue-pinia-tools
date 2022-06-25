@@ -1,12 +1,15 @@
 import { defineStore } from "pinia";
 
-class TestState {
-  message: string = "";
-  messages: string[] = [];
+interface ITestState {
+  message: string;
+  messages: string[];
 }
 
 export const useTestStore = defineStore("test", {
-  state: () => {
-    return new TestState();
+  state: (): ITestState => {
+    return {
+      message: "",
+      messages: [],
+    };
   },
 });
