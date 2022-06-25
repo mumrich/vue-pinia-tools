@@ -1,21 +1,24 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from "./components/HelloWorld.vue";
+import { useTestStore } from "./pinia/stores/TestStore";
+
+const testStore = useTestStore();
+
+function onClickAdd() {
+  testStore.messages.push(testStore.message);
+  testStore.message = "";
+}
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <h1>Vue Pinia-Tools</h1>
+  <p>
+    <input v-model="testStore.message" placeholder="new message" />
+    <button @click="onClickAdd">Add message</button>
+  </p>
+  <h2>Messages</h2>
+  <sl>
+    <li v-for="(message, index) in testStore.messages" :key="index">
+      {{ message }}
+    </li>
+  </sl>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
