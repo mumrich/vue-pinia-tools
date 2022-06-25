@@ -5,7 +5,7 @@ import { watch } from "vue";
 /**
  * Syncs a pinia-store between different documents (in different windows, tabs, frames, or iframes) of the ***same origin***.
  *
- * uses {@link https://vueuse.org/core/usebroadcastchannel/#usebroadcastchannel} internally.
+ * @see https://vueuse.org/core/usebroadcastchannel/#usebroadcastchannel
  * @param context
  */
 export const BroadcastPiniaPlugin: PiniaPlugin = (context) => {
