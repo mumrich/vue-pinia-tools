@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { useTestStore } from "./pinia/stores/TestStore";
 
-const iframeUrl = ref(window.location.host);
+const iframeBaseUrl = ref(window.location.origin);
 const testStore = useTestStore();
 
 function onClickAdd() {
@@ -33,7 +33,7 @@ function onClickAdd() {
         </div>
         <div>
             <p>
-                <iframe title="child-app" :src="`${iframeUrl}/child-app`" />
+                <iframe title="child-app" :src="`${iframeBaseUrl}/child-app`" />
             </p>
         </div>
     </div>
