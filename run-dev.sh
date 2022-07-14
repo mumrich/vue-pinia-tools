@@ -1,4 +1,6 @@
 #!/bin/bash
 
-dotnet watch -- \
+dotnet watch \
+    --project Vue.PiniaTools.Host \
+    -- \
     run -c Debug
