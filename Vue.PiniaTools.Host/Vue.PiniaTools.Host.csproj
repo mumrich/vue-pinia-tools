@@ -9,6 +9,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <SpaRoot Include="App\child-app\" />
+        <SpaRoot Include="App\mumrich-vue-pinia-tools\" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Mumrich.SpaDevMiddleware" Version="1.0.3" />
     </ItemGroup>
 
