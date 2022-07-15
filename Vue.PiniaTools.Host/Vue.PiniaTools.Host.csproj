@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Mumrich.SpaDevMiddleware" Version="1.0.3" />
+        <ProjectReference Include="..\..\dotnet-templates\Mumrich.SpaDevMiddleware\Mumrich.SpaDevMiddleware.csproj" />
     </ItemGroup>
 
 </Project>

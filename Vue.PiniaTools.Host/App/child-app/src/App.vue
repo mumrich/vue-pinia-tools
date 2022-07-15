@@ -1,25 +1,38 @@
 <script setup lang="ts">
+import { v4 as uuidv4 } from "uuid";
+import { useBroadcastBroker } from "mumrich-vue-pinia-tools"
 import { ref } from "vue";
-import { useTestStore } from "../../mumrich-vue-pinia-tools/src/pinia/stores/TestStore";
-const testStore = useTestStore();
-function onClickAdd() {
-  testStore.messages.push(testStore.message);
-  testStore.message = "";
+
+const uid = uuidv4();
+const newMessage = ref(`hello from ${uid}`);
+
+const messageBroker = useBroadcastBroker({
+  name: "gugus"
+});
+
+const messages = ref<string[]>([]);
+
+function sendMessage() {
+  messageBroker.post(newMessage.value);
 }
-const href = ref(window.location.href);
+
+messageBroker.data.subscribe((newReceivedMessage) => messages.value.push(newReceivedMessage));
+
 </script>
 
 <template>
-  <p>{{ href }}</p>
-  <h1>Child App</h1>
+  <h1>Child-App</h1>
   <p>
-    <input v-model="testStore.message" placeholder="new message" />
-    <button @click="onClickAdd">Add message</button>
+    <input v-model="newMessage" @keyup.enter="sendMessage" />
+    <button @click="sendMessage">Send</button>
   </p>
-  <h2>Messages</h2>
   <ol>
-    <li v-for="(message, index) in testStore.messages" :key="index">
-      {{ message }}
-    </li>
+    <li v-for="(m, i) in messages" :key="i">{{ m }}</li>
   </ol>
 </template>
+
+<style scoped>
+input {
+  width: 50%;
+}
+</style>

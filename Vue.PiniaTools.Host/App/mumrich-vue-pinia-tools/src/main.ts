@@ -5,7 +5,7 @@ import { pinia } from "./pinia";
 
 const app = createApp(App);
 
-pinia.use(BroadcastPiniaPlugin);
+// pinia.use(BroadcastPiniaPlugin);
 app.use(pinia);
 
 app.mount("#app");
