@@ -49,11 +49,7 @@ export const useBroadcastBroker = (options: IUseBroadcastBrokerOptions) => {
     });
   }
 
-  data$.subscribe((m) => console.log(`data$: ${m}`));
-
   const data = data$.asObservable();
-
-  data.subscribe((m) => console.log(`data: ${m}`));
 
   return {
     isSupported,
